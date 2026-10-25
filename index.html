@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Gran Canaria 13–20 nov 2026</title>
+<meta name="description" content="Reseplan för Las Palmas, 13–20 november 2026: flyg, parkering, boende och karta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='28' r='16' fill='%23F2C230'/%3E%3Cpath d='M4 50q7-6 14 0t14 0 14 0 14 0' stroke='%230B3D5C' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  /* ===== Tokens ===== */
+  :root {
+    --atlantic: #0B3D5C;      /* djup Atlant */
+    --atlantic-2: #12577F;
+    --foam: #DDEFF0;          /* skum */
+    --sand: #FFFBF2;          /* ljus sand */
+    --banana: #F2C230;        /* kanarisk banan/sol */
+    --bougain: #C8336E;       /* bougainvillea */
+    --basalt: #2A2F33;        /* vulkanisk basalt */
+    --muted: #5B6770;
+    --line: #CFE2E5;
+    --radius-l: 22px;
+    --radius-s: 10px;
+    --display: "Bricolage Grotesque", system-ui, sans-serif;
+    --body: "Atkinson Hyperlegible", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+  body { margin: 0; font-family: var(--body); font-size: 1.0625rem; line-height: 1.55; color: var(--basalt); background: var(--sand); }
+  a { color: var(--atlantic-2); }
+  :focus-visible { outline: 3px solid var(--bougain); outline-offset: 3px; border-radius: 4px; }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.05; margin: 0; }
+  .wrap { width: min(1080px, 100% - 32px); margin-inline: auto; }
+
+  /* ===== Hero ===== */
+  .hero { position: relative; background: var(--atlantic); color: #fff; overflow: hidden; padding: 56px 0 140px; }
+  .hero .sun { position: absolute; right: max(4vw, 16px); top: 34px; width: clamp(120px, 22vw, 230px); aspect-ratio: 1; border-radius: 50%;
+               background: radial-gradient(circle at 40% 40%, #FFE07A, var(--banana) 60%); box-shadow: 0 0 0 18px rgba(242,194,48,.12), 0 0 0 40px rgba(242,194,48,.06); }
+  .hero .who { font-weight: 700; color: var(--foam); margin: 0 0 6px; }
+  .hero h1 { font-size: clamp(3.2rem, 11vw, 7.5rem); font-weight: 800; letter-spacing: -0.035em; max-width: 9ch; }
+  .hero .dates { font-family: var(--display); font-weight: 500; font-size: clamp(1.15rem, 2.6vw, 1.6rem); margin: 14px 0 34px; color: var(--foam); }
+  .count { display: flex; align-items: flex-end; gap: 18px; flex-wrap: wrap; position: relative; z-index: 2; }
+  .count .big { font-family: var(--display); font-weight: 800; font-size: clamp(4.5rem, 16vw, 9rem); line-height: .85; color: var(--banana); font-variant-numeric: tabular-nums; }
+  .count .what { max-width: 22ch; padding-bottom: 8px; font-size: 1.1rem; }
+  .count .what strong { display: block; font-family: var(--display); font-size: 1.5rem; }
+  .waves { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 120px; display: block; }
+
+  /* ===== Nav ===== */
+  nav.jump { position: sticky; top: 0; z-index: 10; background: rgba(255,251,242,.94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  nav.jump ul { list-style: none; margin: 0; padding: 10px 0; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+  nav.jump a { display: block; white-space: nowrap; text-decoration: none; color: var(--atlantic); font-weight: 700; padding: 8px 14px; border-radius: 999px; background: var(--foam); }
+  nav.jump a:hover { background: var(--banana); }
+
+  section { padding: 56px 0 8px; scroll-margin-top: 64px; }
+  .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px; flex-wrap: wrap; }
+  .sec-head h2 { font-size: clamp(2rem, 5vw, 2.9rem); font-weight: 800; letter-spacing: -0.02em; color: var(--atlantic); }
+  .sec-head p { margin: 0; color: var(--muted); }
+
+  /* ===== Boarding passes ===== */
+  .passes { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .pass { display: grid; grid-template-columns: 1fr auto; background: #fff; border: 1.5px solid var(--line); border-radius: var(--radius-l); overflow: hidden; }
+  .pass .main { padding: 20px 22px; }
+  .pass .stub { padding: 20px 18px; border-left: 2px dashed var(--line); background: var(--foam); min-width: 118px; }
+  .pass .day { font-weight: 700; color: var(--muted); margin: 0 0 10px; }
+  .route { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; }
+  .route .code { font-family: var(--display); font-weight: 800; font-size: 2.6rem; letter-spacing: -.02em; line-height: 1; color: var(--atlantic); }
+  .route .time { font-family: var(--display); font-weight: 700; font-size: 1.25rem; color: var(--bougain); }
+  .route .city { font-size: .88rem; color: var(--muted); }
+  .route .end { text-align: right; }
+  .route svg { width: 100%; height: 26px; }
+  .stub .lbl { font-size: .82rem; color: var(--muted); margin: 0; }
+  .stub .flt { font-family: var(--display); font-weight: 800; font-size: 1.4rem; margin: 0 0 10px; color: var(--atlantic); }
+  .stub .note { font-size: .86rem; margin: 0; }
+  .pass.home .route .time { color: var(--atlantic-2); }
+
+  /* ===== Info blocks ===== */
+  .split { display: grid; gap: 22px; grid-template-columns: 1.15fr .85fr; align-items: start; }
+  @media (max-width: 820px) { .split { grid-template-columns: 1fr; } }
+  dl.facts { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 10px 22px; }
+  dl.facts dt { font-weight: 700; color: var(--atlantic); }
+  dl.facts dd { margin: 0; }
+  @media (max-width: 520px) { dl.facts { grid-template-columns: 1fr; gap: 2px; } dl.facts dd { margin-bottom: 10px; } }
+  .panel { background: #fff; border-radius: var(--radius-l); padding: 24px; border: 1.5px solid var(--line); }
+  .panel.sun { background: #FFF3C7; border-color: #F3DD8C; }
+  .panel.pink { background: #FBE6EE; border-color: #F1BFD2; }
+  .panel h3 { font-size: 1.35rem; margin-bottom: 10px; color: var(--atlantic); }
+  .panel p { margin: 0 0 10px; }
+  .panel p:last-child { margin-bottom: 0; }
+  .btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; padding: 12px 18px; border-radius: 999px; background: var(--atlantic); color: #fff; }
+  .btn:hover { background: var(--atlantic-2); }
+  .btn.ghost { background: transparent; color: var(--atlantic); box-shadow: inset 0 0 0 2px var(--atlantic); }
+  .btn.ghost:hover { background: var(--foam); }
+
+  /* ===== Map ===== */
+  .map-frame { position: relative; border-radius: var(--radius-l); overflow: hidden; border: 1.5px solid var(--line); background: var(--foam); }
+  .map-frame iframe { display: block; width: 100%; height: min(72vh, 620px); border: 0; }
+  .map-help { color: var(--muted); font-size: .95rem; margin-top: 12px; }
+
+  /* ===== Steps (bus) ===== */
+  ol.steps { list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; gap: 14px; }
+  ol.steps li { counter-increment: s; display: grid; grid-template-columns: 42px 1fr; gap: 12px; align-items: start; }
+  ol.steps li::before { content: counter(s); width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--banana); color: var(--basalt); font-family: var(--display); font-weight: 800; font-size: 1.2rem; }
+  .alt { display: grid; gap: 14px; }
+
+  /* ===== Timeline ===== */
+  .days { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .day-card h3 { font-size: 1.5rem; margin-bottom: 14px; }
+  .tl { list-style: none; margin: 0; padding: 0 0 0 18px; border-left: 3px solid var(--line); }
+  .tl li { position: relative; padding: 0 0 14px 14px; }
+  .tl li::before { content: ""; position: absolute; left: -26px; top: 6px; width: 13px; height: 13px; border-radius: 50%; background: #fff; border: 3px solid var(--atlantic-2); }
+  .tl li.key::before { background: var(--bougain); border-color: var(--bougain); }
+  .tl time { font-family: var(--display); font-weight: 700; color: var(--atlantic); margin-right: 8px; font-variant-numeric: tabular-nums; }
+  .tl li.now { font-weight: 700; }
+  .tl li.now::after { content: "näst på tur"; display: inline-block; margin-left: 8px; font-size: .78rem; font-weight: 700; color: #fff; background: var(--bougain); padding: 1px 8px; border-radius: 999px; vertical-align: 1px; }
+
+  /* ===== Footer ===== */
+  footer { margin-top: 72px; background: var(--atlantic); color: var(--foam); padding: 40px 0 46px; }
+  footer h2 { color: #fff; font-size: 1.8rem; margin-bottom: 14px; }
+  footer ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+  footer a { color: var(--banana); }
+  footer .small { margin-top: 26px; font-size: .85rem; opacity: .8; }
+  .hero .wrap { position: relative; z-index: 1; }
+  .stub .flt { white-space: nowrap; }
+  @media (max-width: 600px) {
+    .hero .sun { width: 150px; right: -40px; top: -30px; opacity: .9; }
+    .hero { padding-top: 64px; }
+    .pass { grid-template-columns: 1fr; }
+    .pass .stub { border-left: 0; border-top: 2px dashed var(--line); display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; padding: 14px 22px; }
+    .stub .flt { margin: 0; }
+    .route .code { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="who">Arvid &amp; Susanne</p>
+    <h1>Gran Canaria</h1>
+    <p class="dates">13–20 november 2026 · Las Palmas, vid Las Canteras</p>
+    <div class="count" id="count" aria-live="polite">
+      <span class="big" id="countNum">–</span>
+      <span class="what" id="countText"><strong>dagar kvar</strong>till avresan från Landvetter</span>
+    </div>
+  </div>
+  <svg class="waves" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 60 C 180 20, 360 100, 540 60 S 900 20, 1080 60 S 1300 100, 1440 60 L1440 120 L0 120 Z" fill="#12577F"/>
+    <path d="M0 82 C 200 52, 380 112, 600 82 S 960 52, 1180 82 S 1360 104, 1440 88 L1440 120 L0 120 Z" fill="#DDEFF0"/>
+    <path d="M0 102 C 240 88, 480 118, 720 102 S 1200 88, 1440 104 L1440 120 L0 120 Z" fill="#FFFBF2"/>
+  </svg>
+</header>
+
+<nav class="jump" aria-label="Hoppa till">
+  <div class="wrap">
+    <ul>
+      <li><a href="#flyg">Flyg</a></li>
+      <li><a href="#parkering">Parkering</a></li>
+      <li><a href="#boende">Boende</a></li>
+      <li><a href="#karta">Karta</a></li>
+      <li><a href="#dit">Ta sig till hotellet</a></li>
+      <li><a href="#dagar">Resdagarna</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <!-- FLYG -->
+  <section id="flyg">
+    <div class="wrap">
+      <div class="sec-head"><h2>Flyg</h2><p>Ving, Sunclass Airlines, Economy. Lokala tider.</p></div>
+      <div class="passes">
+        <article class="pass" aria-label="Utresa">
+          <div class="main">
+            <p class="day">Utresa, fredag 13 november</p>
+            <div class="route">
+              <div><div class="time">08:15</div><div class="code">GOT</div><div class="city">Landvetter</div></div>
+              <svg viewBox="0 0 200 26" aria-hidden="true"><line x1="0" y1="13" x2="200" y2="13" stroke="#CFE2E5" stroke-width="2" stroke-dasharray="5 5"/><path d="M92 13 l-10 -9 h5 l12 9 l-12 9 h-5z M100 9 h14 a4 4 0 0 1 0 8 h-14z" fill="#C8336E"/></svg>
+              <div class="end"><div class="time">12:50</div><div class="code">LPA</div><div class="city">Gran Canaria</div></div>
+            </div>
+          </div>
+          <div class="stub">
+            <p class="lbl">Flyg</p><p class="flt">DK 1724</p>
+            <p class="note">Incheckning 06:15–07:15</p>
+          </div>
+        </article>
+        <article class="pass home" aria-label="Hemresa">
+          <div class="main">
+            <p class="day">Hemresa, fredag 20 november</p>
+            <div class="route">
+              <div><div class="time">14:10</div><div class="code">LPA</div><div class="city">Gran Canaria</div></div>
+              <svg viewBox="0 0 200 26" aria-hidden="true"><line x1="0" y1="13" x2="200" y2="13" stroke="#CFE2E5" stroke-width="2" stroke-dasharray="5 5"/><path d="M92 13 l-10 -9 h5 l12 9 l-12 9 h-5z M100 9 h14 a4 4 0 0 1 0 8 h-14z" fill="#12577F"/></svg>
+              <div class="end"><div class="time">20:30</div><div class="code">GOT</div><div class="city">Landvetter</div></div>
+            </div>
+          </div>
+          <div class="stub">
+            <p class="lbl">Flyg</p><p class="flt">DK 1725</p>
+            <p class="note">Incheckningen stänger 12:40</p>
+          </div>
+        </article>
+      </div>
+      <div class="split" style="margin-top:22px">
+        <div class="panel">
+          <h3>Bagage och mat</h3>
+          <p>Dit: 15 kg incheckat + 5 kg handbagage var. Hem: Arvid 25 kg, Susanne 20 kg, plus 5 kg handbagage var.</p>
+          <p>Trerättersmeny ombord båda vägarna.</p>
+        </div>
+        <div class="panel sun">
+          <h3>Om något händer</h3>
+          <p>Ving: <a href="tel:+46771995995">0771-995 995</a>. Utanför öppettider: <a href="tel:+46859361017">+46 8 593 610 17</a>.</p>
+          <p>Flygtider kan ändras. Ving meddelar via sms och e-post, och biljetten finns i Ving-appen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARKERING -->
+  <section id="parkering">
+    <div class="wrap">
+      <div class="sec-head"><h2>Parkering</h2><p>Förbokad på Landvetter, område Park It Smart!</p></div>
+      <div class="split">
+        <div class="panel">
+          <dl class="facts">
+            <dt>Kör in</dt><dd>Fredag 13 nov, mellan 02:00 och 07:59</dd>
+            <dt>Kör ut senast</dt><dd>Fredag 20 nov, 23:45</dd>
+            <dt>Reservationskod</dt><dd>Finns i bokningsmejlet och i PDF:en med bokningarna</dd>
+          </dl>
+        </div>
+        <div class="panel pink">
+          <h3>Tidsmarginal</h3>
+          <p>Incheckningen stänger 07:15, så ni är inne på parkeringen långt före 07:59. Planet hem landar 20:30, drygt tre timmar innan bokningen går ut.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOENDE -->
+  <section id="boende">
+    <div class="wrap">
+      <div class="sec-head"><h2>Boende</h2><p>Apartments RK Farallón Canteras, 7 nätter</p></div>
+      <div class="split">
+        <div class="panel">
+          <dl class="facts">
+            <dt>Adress</dt><dd>Calle Nicolás Estévanez 38, 35007 Las Palmas de Gran Canaria</dd>
+            <dt>Incheckning</dt><dd>Fredag 13 november</dd>
+            <dt>Utcheckning</dt><dd>Fredag 20 november</dd>
+            <dt>Rum</dt><dd>Studio för två, endast logi, med pentry</dd>
+            <dt>Telefon</dt><dd><a href="tel:+34639334227">+34 639 33 42 27</a></dd>
+            <dt>E-post</dt><dd><a href="mailto:reservas@faralloncanteras.com">reservas@faralloncanteras.com</a></dd>
+          </dl>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=28.1394579%2C-15.4362324" target="_blank" rel="noopener">Vägbeskrivning till hotellet</a>
+            <a class="btn ghost" href="tel:+34639334227">Ring hotellet</a>
+          </div>
+        </div>
+        <div class="panel sun">
+          <h3>Bra att veta</h3>
+          <p>Fem minuter till stranden Las Canteras och Parque Santa Catalina.</p>
+          <p>Ha passen redo vid incheckningen. Spanien kräver fler personuppgifter av hotellgäster sedan 2024.</p>
+          <p>Hotellet ber aldrig om kortuppgifter via sms eller WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KARTA -->
+  <section id="karta">
+    <div class="wrap">
+      <div class="sec-head"><h2>Karta</h2><p>Våra platser i Las Palmas</p></div>
+      <div class="map-frame">
+        <iframe title="Karta över intressanta platser i Las Palmas"
+                src="https://www.google.com/maps/d/embed?mid=1w--A9qHr9oF24oSyBjXEDYrEZlK0nKc&amp;ll=28.14264410844249%2C-15.424807504283505&amp;z=15&amp;ehbc=2E312F"
+                loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p class="map-help">Kartan uppdateras automatiskt när platser läggs till i Google My Maps.
+        <a href="https://www.google.com/maps/d/viewer?mid=1w--A9qHr9oF24oSyBjXEDYrEZlK0nKc" target="_blank" rel="noopener">Öppna kartan i Google Maps</a></p>
+    </div>
+  </section>
+
+  <!-- DIT -->
+  <section id="dit">
+    <div class="wrap">
+      <div class="sec-head"><h2>Från flygplatsen</h2><p>Transfer ingår inte. Bussen är billigast.</p></div>
+      <div class="split">
+        <div class="panel">
+          <h3>Buss 60, cirka 3 € per person</h3>
+          <ol class="steps">
+            <li><span>Gå till höger efter ankomsthallen och ta rulltrappan upp till avgångsplanet.</span></li>
+            <li><span>Gå ut genom dörr 5. Hållplatsen ligger på andra sidan parkeringen.</span></li>
+            <li><span>Ta grön Global-buss 60 mot Las Palmas. Stort bagage läggs i utrymmet under bussen.</span></li>
+            <li><span>Kliv av vid slutstationen Santa Catalina och gå cirka 300 meter till hotellet.</span></li>
+          </ol>
+          <p style="margin-top:16px;color:var(--muted)">Avgångar var 30:e minut 06:00–20:15, sedan 21:15, 22:15 och 23:15. Kolla aktuella tider på <a href="https://www.globalsu.net" target="_blank" rel="noopener">globalsu.net</a>.</p>
+        </div>
+        <div class="alt">
+          <div class="panel sun">
+            <h3>Taxi</h3>
+            <p>Cirka 30–35 €, 20–30 minuter. Taxikön finns utanför ankomsthallen.</p>
+          </div>
+          <div class="panel pink">
+            <h3>Hotellets transfer</h3>
+            <p>Finns dygnet runt mot avgift. Boka direkt med hotellet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAGAR -->
+  <section id="dagar">
+    <div class="wrap">
+      <div class="sec-head"><h2>Resdagarna</h2><p>Svensk tid på Landvetter, kanarisk tid på Gran Canaria (en timme efter)</p></div>
+      <div class="days">
+        <div class="panel day-card">
+          <h3>Fredag 13 nov, dit</h3>
+          <ol class="tl" data-day="2026-11-13">
+            <li data-t="2026-11-13T02:00:00+01:00"><time>02:00</time>Parkeringen öppnar för oss</li>
+            <li data-t="2026-11-13T06:15:00+01:00"><time>06:15</time>Incheckningen öppnar</li>
+            <li class="key" data-t="2026-11-13T07:15:00+01:00"><time>07:15</time>Incheckningen stänger</li>
+            <li class="key" data-t="2026-11-13T08:15:00+01:00"><time>08:15</time>Avgång DK 1724</li>
+            <li data-t="2026-11-13T12:50:00+00:00"><time>12:50</time>Landning Gran Canaria</li>
+            <li data-t="2026-11-13T13:30:00+00:00"><time>~13:30</time>Buss 60 till Santa Catalina</li>
+          </ol>
+        </div>
+        <div class="panel day-card">
+          <h3>Fredag 20 nov, hem</h3>
+          <ol class="tl" data-day="2026-11-20">
+            <li data-t="2026-11-20T10:30:00+00:00"><time>~10:30</time>Utcheckning</li>
+            <li data-t="2026-11-20T11:15:00+00:00"><time>~11:15</time>Buss 60 eller taxi till flygplatsen</li>
+            <li class="key" data-t="2026-11-20T12:40:00+00:00"><time>12:40</time>Incheckningen stänger</li>
+            <li class="key" data-t="2026-11-20T14:10:00+00:00"><time>14:10</time>Avgång DK 1725</li>
+            <li data-t="2026-11-20T20:30:00+01:00"><time>20:30</time>Landning Landvetter</li>
+            <li data-t="2026-11-20T23:45:00+01:00"><time>23:45</time>Senast ut från parkeringen</li>
+          </ol>
+        </div>
+      </div>
+      <p style="color:var(--muted);font-size:.95rem;margin-top:14px">Tider med ~ är förslag. Utcheckningstiden står inte i bokningen, så fråga hotellet.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2>Kom ihåg</h2>
+    <ul>
+      <li>Pass för båda</li>
+      <li>Ving-appen med biljetterna</li>
+      <li>Euro eller kort för bussen</li>
+      <li>Bokningsmejlen från Ving, hotellet och parkeringen</li>
+    </ul>
+    <p class="small">Busstider och priser kan ändras. Kontrollera dem före resan.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var depart = new Date("2026-11-13T08:15:00+01:00");
+  var home   = new Date("2026-11-20T20:30:00+01:00");
+  var num = document.getElementById("countNum");
+  var txt = document.getElementById("countText");
+  function render() {
+    var now = new Date();
+    if (now < depart) {
+      var ms = depart - now;
+      var days = Math.floor(ms / 86400000);
+      if (days >= 1) {
+        num.textContent = days;
+        txt.innerHTML = "<strong>" + (days === 1 ? "dag kvar" : "dagar kvar") + "</strong>till avresan från Landvetter";
+      } else {
+        var h = Math.max(1, Math.ceil(ms / 3600000));
+        num.textContent = h;
+        txt.innerHTML = "<strong>" + (h === 1 ? "timme kvar" : "timmar kvar") + "</strong>till avgång DK 1724";
+      }
+    } else if (now <= home) {
+      var start = new Date("2026-11-13T00:00:00+00:00");
+      var d = Math.min(8, Math.floor((now - start) / 86400000) + 1);
+      num.textContent = d;
+      txt.innerHTML = "<strong>dag av 8</strong>på Gran Canaria";
+    } else {
+      num.textContent = "♥";
+      txt.innerHTML = "<strong>Välkomna hem</strong>hoppas resan var fin";
+    }
+    // markera nästa punkt i dagens tidslinje
+    document.querySelectorAll(".tl li.now").forEach(function (el) { el.classList.remove("now"); });
+    var items = Array.prototype.slice.call(document.querySelectorAll(".tl li[data-t]"));
+    var first = items.find(function (el) { return new Date(el.dataset.t) > now; });
+    if (first && (new Date(first.dataset.t) - now) < 18 * 3600000) first.classList.add("now");
+  }
+  render();
+  setInterval(render, 60000);
+})();
+</script>
+</body>
+</html>

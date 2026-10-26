@@ -2,7 +2,10 @@
 <html lang="sv">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B3D5C">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Gran Canaria">
 <meta name="robots" content="noindex, nofollow">
 <title>Gran Canaria 13–20 nov 2026</title>
 <meta name="description" content="Reseplan för Las Palmas, 13–20 november 2026: flyg, parkering, boende och karta.">
@@ -28,13 +31,13 @@
     --body: "Atkinson Hyperlegible", system-ui, sans-serif;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
   body { margin: 0; font-family: var(--body); font-size: 1.0625rem; line-height: 1.55; color: var(--basalt); background: var(--sand); }
   a { color: var(--atlantic-2); }
   :focus-visible { outline: 3px solid var(--bougain); outline-offset: 3px; border-radius: 4px; }
   h1, h2, h3 { font-family: var(--display); line-height: 1.05; margin: 0; }
-  .wrap { width: min(1080px, 100% - 32px); margin-inline: auto; }
+  .wrap { width: min(1080px, 100% - 32px - env(safe-area-inset-left) - env(safe-area-inset-right)); margin-inline: auto; }
 
   /* ===== Hero ===== */
   .hero { position: relative; background: var(--atlantic); color: #fff; overflow: hidden; padding: 56px 0 140px; }
@@ -52,8 +55,10 @@
   /* ===== Nav ===== */
   nav.jump { position: sticky; top: 0; z-index: 10; background: rgba(255,251,242,.94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
   nav.jump ul { list-style: none; margin: 0; padding: 10px 0; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
-  nav.jump a { display: block; white-space: nowrap; text-decoration: none; color: var(--atlantic); font-weight: 700; padding: 8px 14px; border-radius: 999px; background: var(--foam); }
+  nav.jump ul::-webkit-scrollbar { display: none; }
+  nav.jump a { display: block; white-space: nowrap; text-decoration: none; color: var(--atlantic); font-weight: 700; padding: 11px 16px; border-radius: 999px; background: var(--foam); min-height: 44px; }
   nav.jump a:hover { background: var(--banana); }
+  nav.jump a[aria-current="true"] { background: var(--atlantic); color: #fff; }
 
   section { padding: 56px 0 8px; scroll-margin-top: 64px; }
   .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px; flex-wrap: wrap; }
@@ -61,7 +66,8 @@
   .sec-head p { margin: 0; color: var(--muted); }
 
   /* ===== Boarding passes ===== */
-  .passes { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .passes { display: grid; gap: 18px; grid-template-columns: 1fr 1fr; }
+  @media (max-width: 900px) { .passes { grid-template-columns: 1fr; } }
   .pass { display: grid; grid-template-columns: 1fr auto; background: #fff; border: 1.5px solid var(--line); border-radius: var(--radius-l); overflow: hidden; }
   .pass .main { padding: 20px 22px; }
   .pass .stub { padding: 20px 18px; border-left: 2px dashed var(--line); background: var(--foam); min-width: 118px; }
@@ -71,7 +77,7 @@
   .route .time { font-family: var(--display); font-weight: 700; font-size: 1.25rem; color: var(--bougain); }
   .route .city { font-size: .88rem; color: var(--muted); }
   .route .end { text-align: right; }
-  .route svg { width: 100%; height: 26px; }
+  .route svg { width: 100%; min-width: 40px; height: 26px; }
   .stub .lbl { font-size: .82rem; color: var(--muted); margin: 0; }
   .stub .flt { font-family: var(--display); font-weight: 800; font-size: 1.4rem; margin: 0 0 10px; color: var(--atlantic); }
   .stub .note { font-size: .86rem; margin: 0; }
@@ -91,15 +97,22 @@
   .panel p { margin: 0 0 10px; }
   .panel p:last-child { margin-bottom: 0; }
   .btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; padding: 12px 18px; border-radius: 999px; background: var(--atlantic); color: #fff; }
+  .btn { min-height: 48px; justify-content: center; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 700; padding: 12px 18px; border-radius: 999px; background: var(--atlantic); color: #fff; }
   .btn:hover { background: var(--atlantic-2); }
   .btn.ghost { background: transparent; color: var(--atlantic); box-shadow: inset 0 0 0 2px var(--atlantic); }
   .btn.ghost:hover { background: var(--foam); }
 
   /* ===== Map ===== */
-  .map-frame { position: relative; border-radius: var(--radius-l); overflow: hidden; border: 1.5px solid var(--line); background: var(--foam); }
-  .map-frame iframe { display: block; width: 100%; height: min(72vh, 620px); border: 0; }
-  .map-help { color: var(--muted); font-size: .95rem; margin-top: 12px; }
+  .map-frame { position: relative; border-radius: var(--radius-l); overflow: hidden; border: 1.5px solid var(--line);
+               background: var(--foam) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='24'%3E%3Cpath d='M0 12q7.5-8 15 0t15 0 15 0 15 0' stroke='%23CFE2E5' stroke-width='2' fill='none'/%3E%3C/svg%3E"); }
+  .map-frame iframe { display: block; width: 100%; height: min(72vh, 620px); min-height: 380px; border: 0; }
+  .map-lock { position: absolute; inset: 0; display: none; align-items: flex-end; justify-content: center; padding: 18px;
+              background: linear-gradient(to top, rgba(11,61,92,.55), rgba(11,61,92,0) 45%); border: 0; width: 100%; cursor: pointer; font: inherit; }
+  .map-lock span { background: #fff; color: var(--atlantic); font-weight: 700; padding: 12px 18px; border-radius: 999px; box-shadow: 0 4px 14px rgba(11,61,92,.25); }
+  .touch .map-lock { display: flex; }
+  .touch .map-frame.active .map-lock { display: none; }
+  .map-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+  .map-help { color: var(--muted); font-size: .95rem; margin-top: 12px; max-width: 70ch; }
 
   /* ===== Steps (bus) ===== */
   ol.steps { list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; gap: 14px; }
@@ -126,13 +139,40 @@
   footer .small { margin-top: 26px; font-size: .85rem; opacity: .8; }
   .hero .wrap { position: relative; z-index: 1; }
   .stub .flt { white-space: nowrap; }
+  /* ===== Snabbknappar (mobil) ===== */
+  .quickbar { display: none; }
+  @media (max-width: 700px) {
+    .quickbar { display: grid; grid-template-columns: repeat(3, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+                background: var(--atlantic); padding: 8px 8px calc(8px + env(safe-area-inset-bottom)); gap: 6px; box-shadow: 0 -4px 18px rgba(11,61,92,.25); }
+    .quickbar a { display: flex; flex-direction: column; align-items: center; gap: 2px; color: #fff; text-decoration: none; font-weight: 700; font-size: .82rem;
+                  padding: 8px 4px; border-radius: 12px; min-height: 52px; justify-content: center; }
+    .quickbar a:active { background: var(--atlantic-2); }
+    .quickbar svg { width: 22px; height: 22px; }
+    body { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+    section { padding-top: 40px; }
+    .sec-head { margin-bottom: 16px; }
+    .panel { padding: 20px 18px; border-radius: 18px; }
+    .split { gap: 14px; }
+    .btns .btn { flex: 1 1 100%; }
+    .map-actions .btn { flex: 1 1 100%; }
+    .map-frame iframe { height: 62vh; }
+    footer { margin-top: 48px; }
+  }
   @media (max-width: 600px) {
     .hero .sun { width: 150px; right: -40px; top: -30px; opacity: .9; }
-    .hero { padding-top: 64px; }
+    .hero { padding: 64px 0 110px; }
+    .waves { height: 80px; }
     .pass { grid-template-columns: 1fr; }
     .pass .stub { border-left: 0; border-top: 2px dashed var(--line); display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; padding: 14px 22px; }
     .stub .flt { margin: 0; }
     .route .code { font-size: 2.2rem; }
+    .pass .main { padding: 18px; }
+    .count .what strong { font-size: 1.3rem; }
+  }
+  @media (max-width: 360px) {
+    .route .code { font-size: 1.8rem; }
+    .route .time { font-size: 1.05rem; }
+    .route { gap: 6px; }
   }
 </style>
 </head>
@@ -273,13 +313,17 @@
   <section id="karta">
     <div class="wrap">
       <div class="sec-head"><h2>Karta</h2><p>Våra platser i Las Palmas</p></div>
-      <div class="map-frame">
+      <div class="map-frame" id="mapFrame">
         <iframe title="Karta över intressanta platser i Las Palmas"
-                src="https://www.google.com/maps/d/embed?mid=1w--A9qHr9oF24oSyBjXEDYrEZlK0nKc&amp;ll=28.14264410844249%2C-15.424807504283505&amp;z=15&amp;ehbc=2E312F"
-                loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+                src="https://www.google.com/maps/d/embed?mid=1w--A9qHr9oF24oSyBjXEDYrEZlK0nKc&amp;ll=28.14264410844249%2C-15.424807504283505&amp;z=15"
+                allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <button class="map-lock" type="button" id="mapLock"><span>Tryck för att använda kartan</span></button>
       </div>
-      <p class="map-help">Kartan uppdateras automatiskt när platser läggs till i Google My Maps.
-        <a href="https://www.google.com/maps/d/viewer?mid=1w--A9qHr9oF24oSyBjXEDYrEZlK0nKc" target="_blank" rel="noopener">Öppna kartan i Google Maps</a></p>
+      <div class="map-actions">
+        <a class="btn" href="https://www.google.com/maps/d/viewer?mid=1w--A9qHr9oF24oSyBjXEDYrEZlK0nKc&amp;ll=28.14264410844249%2C-15.424807504283505&amp;z=15" target="_blank" rel="noopener">Öppna kartan i helskärm</a>
+        <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&amp;query=28.1394579%2C-15.4362324" target="_blank" rel="noopener">Visa hotellet i Google Maps</a>
+      </div>
+      <p class="map-help">Syns ingen karta ovan? Använd knappen Öppna kartan i helskärm. Platser som läggs till i Google My Maps visas automatiskt.</p>
     </div>
   </section>
 
@@ -345,6 +389,12 @@
   </section>
 </main>
 
+<nav class="quickbar" aria-label="Snabbval">
+  <a href="#karta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Karta</a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=28.1394579%2C-15.4362324" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>Till hotellet</a>
+  <a href="tel:+34639334227"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>Ring hotellet</a>
+</nav>
+
 <footer>
   <div class="wrap">
     <h2>Kom ihåg</h2>
@@ -394,6 +444,31 @@
   }
   render();
   setInterval(render, 60000);
+
+  // Pekskärm: kartan aktiveras med ett tryck så att sidan går att scrolla förbi den
+  var touch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+  if (touch) document.documentElement.classList.add("touch");
+  var frame = document.getElementById("mapFrame"), lock = document.getElementById("mapLock");
+  lock.addEventListener("click", function () { frame.classList.add("active"); });
+  document.addEventListener("touchstart", function (e) {
+    if (frame.classList.contains("active") && !frame.contains(e.target)) frame.classList.remove("active");
+  }, { passive: true });
+
+  // Markera aktuell sektion i menyn
+  var links = Array.prototype.slice.call(document.querySelectorAll("nav.jump a"));
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        links.forEach(function (a) {
+          var on = a.getAttribute("href") === "#" + en.target.id;
+          if (on) { a.setAttribute("aria-current", "true"); var ul = a.closest("ul"); ul.scrollTo({ left: a.parentNode.offsetLeft - (ul.clientWidth - a.offsetWidth) / 2, behavior: "smooth" }); }
+          else a.removeAttribute("aria-current");
+        });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    links.forEach(function (a) { var t = document.querySelector(a.getAttribute("href")); if (t) io.observe(t); });
+  }
 })();
 </script>
 </body>
